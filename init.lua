@@ -1,5 +1,8 @@
 -- vim:foldmethod=marker foldlevel=0
 
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
 -- Files {{{1
 vim.o.swapfile = false
 
@@ -43,16 +46,28 @@ vim.o.cursorline = true
 
 vim.g.netrw_keepdir=0
 
+if vim.fn.has("gui_running") then
+    vim.o.mousehide = true
+    vim.o.guifont="FiraCode Nerd Font:h14"
+    vim.o.guicursor="a:block-blinkon1000-blinkoff0,i:block-blinkon500-blinkoff500"
+end
+
 -- Sessions {{{1
 vim.o.ssop="folds,globals,localoptions,resize,sesdir,slash,tabpages,terminal,unix"
  
--- Plugins & Additional configuration files {{{1
+
+-- Plugins {{{1
+require("config.lazy")
+require("config.statusline")
+require("config.lsp")
 
 -- Key Bindings {{{1
 -- Navigation {{{2
 vim.keymap.set('n', '<TAB>', '<Cmd>tabnext<CR>', { silent = true })
-vim.keymap.set('n', '<S-TAB>', '<Cmd>tabprevCR>', { silent = true })
+vim.keymap.set('n', '<S-TAB>', '<Cmd>tabprev<CR>', { silent = true })
 vim.keymap.set('n', '<Leader>t', '<Cmd>tabnew<CR>', { silent = true })
+vim.keymap.set('n', '<Leader>n', '<Cmd>Neotree filesystem toggle left<CR>', {})
+vim.keymap.set('n', '<Leader>r', '<Cmd>Neotree reveal<CR>', {})
 
 -- Panes {{{2
 vim.keymap.set('n', '<F2>', '<Cmd>Explore<CR>', { silent = true })
@@ -60,12 +75,16 @@ vim.keymap.set('n', '<Leader>b', '<Cmd>buffers<CR>', { silent = true })
 vim.keymap.set('n', '<Leader>k', '<Cmd>terminal<CR>', { silent = true })
 
 -- IDE {{{2
--- vim.keymap.set('n', '<Leader>e', '<Cmd>CocDiagnostics<CR>', { silent = true })
--- vim.keymap.set('n', '<Leader>o', '<Cmd>CocOutline<CR>', { silent = true })
--- vim.keymap.set('n', '<Leader>i', '<Cmd>call CocActionAsync('definitionHover')<CR>', { silent = true })
--- vim.keymap.set('n', '<Leader>d', '<Cmd>call CocActionAsync('jumpDefinition')<CR>', { silent = true })
--- vim.keymap.set('n', '<Leader><S-d>', '<Cmd>call CocActionAsync('jumpDefinition', 'split')<CR>', { silent = true })
--- vim.keymap.set('n', '<Leader><F2>', '<Cmd>call CocActionAsync('refactor')<CR>', { silent = true })
--- vim.keymap.set('n', '<Leader>a', '<Cmd>call CocActionAsync('codeAction', 'cursor')<CR>', { silent = true })
--- vim.keymap.set('n', '<Leader><F12>', '<Cmd>call CocActionAsync('references')<CR>', { silent = true })
--- vim.keymap.set('n', '<Leader><Space>', '<Cmd>call CocActionAsync('showSignatureHelp')<CR>', { silent = true })
+local telescope = require('telescope.builtin')
+
+vim.keymap.set('n', '<leader>ff', telescope.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>fg', telescope.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fb', telescope.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>fh', telescope.help_tags, { desc = 'Telescope help tags' })
+
+vim.keymap.set('n', '<C-h>', vim.lsp.buf.hover, { desc = "Display symbol information" })
+vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, { desc = "Goto definition/declaration" })
+vim.keymap.set('n', '<leader>u', vim.lsp.buf.references, { desc = "Display references" })
+vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { desc = "Rename symbol" })
+vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, { desc = "Display code actions" })
+vim.keymap.set('i', '<C-n>', vim.lsp.buf.signature_help, { desc = "Display signature help" })
