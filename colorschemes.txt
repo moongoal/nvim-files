@@ -1,0 +1,10 @@
+Scheme      Description
+------------------------------------------
+blue        Retro
+elflord     Dark, neon, cyan
+peachbuff   Salmony, frehs, coloured
+retrobox    Shiny, fresh, coloured, yellow
+ron         Dark, neon, blue
+slate       Professional dark
+sorbet      Chill dark, muted, magenta
+zaibatsu    Chill dark, magenta
