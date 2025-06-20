@@ -60,6 +60,7 @@ vim.o.ssop="folds,globals,localoptions,resize,sesdir,slash,tabpages,terminal,uni
 require("config.lazy")
 require("config.statusline")
 require("config.lsp")
+require("config.fontsize")
 
 -- Key Bindings {{{1
 -- Navigation {{{2
@@ -73,6 +74,10 @@ vim.keymap.set('n', '<Leader>r', '<Cmd>Neotree reveal<CR>', {})
 vim.keymap.set('n', '<F2>', '<Cmd>Explore<CR>', { silent = true })
 vim.keymap.set('n', '<Leader>b', '<Cmd>buffers<CR>', { silent = true })
 vim.keymap.set('n', '<Leader>k', '<Cmd>terminal<CR>', { silent = true })
+
+-- Editing {{{2
+vim.keymap.set('n', '<Leader>=', '<Cmd>IncreaseFontSize<CR>', { silent = true })
+vim.keymap.set('n', '<Leader>-', '<Cmd>DecreaseFontSize<CR>', { silent = true })
 
 -- IDE {{{2
 local telescope = require('telescope.builtin')
