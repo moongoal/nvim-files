@@ -93,3 +93,6 @@ vim.keymap.set('n', '<leader>u', vim.lsp.buf.references, { desc = "Display refer
 vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { desc = "Rename symbol" })
 vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, { desc = "Display code actions" })
 vim.keymap.set('i', '<C-n>', vim.lsp.buf.signature_help, { desc = "Display signature help" })
+vim.keymap.set('n', '<leader>dd', vim.diagnostic.open_float, { desc = "Display diagnostics" })
+vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next, { desc = "Go to the next diagnostic location" })
+vim.keymap.set('n', '<leader>dp', vim.diagnostic.goto_prev, { desc = "Go to the next diagnostic location" })
