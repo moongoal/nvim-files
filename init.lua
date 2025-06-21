@@ -35,7 +35,7 @@ vim.o.hlsearch = true
 vim.o.bs="indent,eol,start,nostop"
 
 -- Interface {{{1
-vim.cmd.colorscheme("sorbet")
+vim.cmd.colorscheme("blue")
 
 vim.o.cp = false
 vim.o.timeout = false
@@ -86,7 +86,7 @@ vim.keymap.set('n', '<leader>fg', telescope.live_grep, { desc = 'Telescope live 
 vim.keymap.set('n', '<leader>fb', telescope.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', telescope.help_tags, { desc = 'Telescope help tags' })
 
-vim.keymap.set('n', '<C-h>', vim.lsp.buf.hover, { desc = "Display symbol information" })
+vim.keymap.set('n', '<leader>i', vim.lsp.buf.hover, { desc = "Display symbol information" })
 vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, { desc = "Goto definition/declaration" })
 vim.keymap.set('n', '<leader>u', vim.lsp.buf.references, { desc = "Display references" })
 vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { desc = "Rename symbol" })
