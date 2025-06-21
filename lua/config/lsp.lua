@@ -1,5 +1,6 @@
 local lsp_config = {
-    { "clangd", require("config.lsp.clangd") }
+    { "clangd", require("config.lsp.clangd") },
+    { "lua_ls", require("config.lsp.lua_ls") },
 }
 
 for i, entry in ipairs(lsp_config) do
