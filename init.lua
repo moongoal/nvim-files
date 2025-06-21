@@ -67,11 +67,10 @@ require("config.fontsize")
 vim.keymap.set('n', '<TAB>', '<Cmd>tabnext<CR>', { silent = true })
 vim.keymap.set('n', '<S-TAB>', '<Cmd>tabprev<CR>', { silent = true })
 vim.keymap.set('n', '<Leader>t', '<Cmd>tabnew<CR>', { silent = true })
-vim.keymap.set('n', '<Leader>n', '<Cmd>Neotree filesystem toggle left<CR>', {})
-vim.keymap.set('n', '<Leader>r', '<Cmd>Neotree reveal<CR>', {})
+vim.keymap.set('n', '<F2>', '<Cmd>Neotree filesystem toggle left<CR>', {})
+vim.keymap.set('n', '<Leader><F2>', '<Cmd>Neotree reveal<CR>', {})
 
 -- Panes {{{2
-vim.keymap.set('n', '<F2>', '<Cmd>Explore<CR>', { silent = true })
 vim.keymap.set('n', '<Leader>b', '<Cmd>buffers<CR>', { silent = true })
 vim.keymap.set('n', '<Leader>k', '<Cmd>terminal<CR>', { silent = true })
 
