@@ -1,8 +1,14 @@
 local function getLines(text)
     local result = {}
-    for s in string.gmatch(text, "([^\n]+)") do
-        table.insert(result, s)
+
+    for field, s in string.gmatch(text, "([^\n]*)(\n?)") do
+        table.insert(result, field)
+
+        if s == "" then
+            return result
+        end
     end
+
     return result
 end
 
