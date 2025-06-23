@@ -26,6 +26,7 @@ vim.o.ffs="unix,dos"
 vim.o.autoindent = true
 vim.o.expandtab = true
 vim.o.smartindent = true
+vim.o.cindent = false
 vim.o.smarttab = false
 vim.o.shiftwidth=4
 vim.o.tabstop=4
