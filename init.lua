@@ -60,7 +60,7 @@ vim.g.netrw_keepdir=0
 
 if vim.fn.has("gui_running") then
     vim.o.mousehide = true
-    vim.o.guifont="FiraCode Nerd Font:h14"
+    vim.o.guifont="FiraCode Nerd Font:h16"
     vim.o.guicursor="a:block-blinkon1000-blinkoff0,i:block-blinkon500-blinkoff500"
 end
 
