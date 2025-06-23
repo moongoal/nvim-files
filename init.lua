@@ -33,6 +33,7 @@ vim.o.softtabstop=4
 vim.o.number = true
 vim.o.hlsearch = true
 vim.o.bs="indent,eol,start,nostop"
+vim.o.completeopt="menu,popup,preview,longest"
 
 -- Interface {{{1
 vim.cmd.colorscheme("blue")
@@ -77,6 +78,7 @@ vim.keymap.set('n', '<Leader>k', '<Cmd>terminal<CR>', { silent = true })
 -- Editing {{{2
 vim.keymap.set('n', '<Leader>=', '<Cmd>IncreaseFontSize<CR>', { silent = true })
 vim.keymap.set('n', '<Leader>-', '<Cmd>DecreaseFontSize<CR>', { silent = true })
+vim.keymap.set('n', '<Leader>cf', vim.lsp.buf.format, {})
 
 -- IDE {{{2
 local telescope = require('telescope.builtin')
@@ -93,5 +95,20 @@ vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { desc = "Rename symbol" })
 vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, { desc = "Display code actions" })
 vim.keymap.set('i', '<C-n>', vim.lsp.buf.signature_help, { desc = "Display signature help" })
 vim.keymap.set('n', '<leader>dd', vim.diagnostic.open_float, { desc = "Display diagnostics" })
-vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next, { desc = "Go to the next diagnostic location" })
-vim.keymap.set('n', '<leader>dp', vim.diagnostic.goto_prev, { desc = "Go to the next diagnostic location" })
+vim.keymap.set('n', '<leader>dn', function () vim.diagnostic.jump({ count = 1, float = true }) end, { desc = "Go to the next diagnostic location" })
+vim.keymap.set('n', '<leader>dp', function() vim.diagnostic.jump({ count = -1, float = true }) end, { desc = "Go to the next diagnostic location" })
+
+-- Auto commands {{{1
+vim.api.nvim_create_autocmd({"BufNew", "BufNewFile", "BufReadPre"}, {
+    pattern = { "*.c", "*.h" },
+    callback = function()
+        vim.o.equalprg = "clang-format"
+    end
+})
+
+vim.api.nvim_create_autocmd({"BufWritePre"}, {
+    pattern = { "*.c", "*.h" },
+    callback = function()
+        vim.lsp.buf.format()
+    end
+})
