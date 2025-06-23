@@ -55,7 +55,6 @@ end
 
 -- Sessions {{{1
 vim.o.ssop="folds,globals,localoptions,resize,sesdir,slash,tabpages,terminal,unix"
- 
 
 -- Plugins {{{1
 require("config.lazy")
