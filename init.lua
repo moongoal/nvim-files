@@ -22,7 +22,7 @@ vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
 vim.api.nvim_create_autocmd({"BufWritePre"}, {
     pattern = { "*.c", "*.h" },
     callback = function()
-        vim.lsp.buf.format()
+        vim.api.nvim_command("ClangFormatBuffer")
     end
 })
 
@@ -72,6 +72,7 @@ require("config.lazy")
 require("config.statusline")
 require("config.lsp")
 require("config.fontsize")
+require("config.clang-format")
 
 -- Key Bindings {{{1
 -- Navigation {{{2
@@ -88,7 +89,7 @@ vim.keymap.set('n', '<Leader>k', '<Cmd>terminal<CR>', { silent = true })
 -- Editing {{{2
 vim.keymap.set('n', '<Leader>=', '<Cmd>IncreaseFontSize<CR>', { silent = true })
 vim.keymap.set('n', '<Leader>-', '<Cmd>DecreaseFontSize<CR>', { silent = true })
-vim.keymap.set('n', '<Leader>cf', vim.lsp.buf.format, {})
+vim.keymap.set('n', '<Leader>cf', '<Cmd>ClangFormatBuffer<CR>', {})
 
 -- IDE {{{2
 local telescope = require('telescope.builtin')
