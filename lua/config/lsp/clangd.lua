@@ -19,7 +19,7 @@
 ---@field offsetEncoding? string
 
 return {
-  cmd = { 'clangd' },
+  cmd = { 'clangd', '--clang-tidy', '--enable-config', '--fallback-style=none' },
   filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda', 'proto' },
   root_markers = {
     '.clangd',

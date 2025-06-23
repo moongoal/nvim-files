@@ -13,7 +13,17 @@ vim.api.nvim_create_autocmd("BufRead", {
 
 vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
     pattern = {"*.c", "*.h"},
-    callback = function() vim.o.syntax="c" end
+    callback = function()
+        vim.o.syntax="c"
+        vim.o.equalprg = "clang-format"
+    end
+})
+
+vim.api.nvim_create_autocmd({"BufWritePre"}, {
+    pattern = { "*.c", "*.h" },
+    callback = function()
+        vim.lsp.buf.format()
+    end
 })
 
 vim.g.c_syntax_for_h=1
@@ -98,17 +108,3 @@ vim.keymap.set('n', '<leader>dd', vim.diagnostic.open_float, { desc = "Display d
 vim.keymap.set('n', '<leader>dn', function () vim.diagnostic.jump({ count = 1, float = true }) end, { desc = "Go to the next diagnostic location" })
 vim.keymap.set('n', '<leader>dp', function() vim.diagnostic.jump({ count = -1, float = true }) end, { desc = "Go to the next diagnostic location" })
 
--- Auto commands {{{1
-vim.api.nvim_create_autocmd({"BufNew", "BufNewFile", "BufReadPre"}, {
-    pattern = { "*.c", "*.h" },
-    callback = function()
-        vim.o.equalprg = "clang-format"
-    end
-})
-
-vim.api.nvim_create_autocmd({"BufWritePre"}, {
-    pattern = { "*.c", "*.h" },
-    callback = function()
-        vim.lsp.buf.format()
-    end
-})
