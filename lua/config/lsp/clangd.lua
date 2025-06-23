@@ -18,8 +18,10 @@
 ---@class ClangdInitializeResult: lsp.InitializeResult
 ---@field offsetEncoding? string
 
+local clangd_exe = os.getenv("CLANGD") or "clangd"
+
 return {
-  cmd = { 'clangd', '--clang-tidy', '--enable-config', '--fallback-style=none' },
+  cmd = { clangd_exe, '--clang-tidy', '--enable-config', '--fallback-style=none' },
   filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda', 'proto' },
   root_markers = {
     '.clangd',
