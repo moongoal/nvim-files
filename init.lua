@@ -16,6 +16,7 @@ vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
     callback = function()
         vim.o.syntax="c"
         vim.o.equalprg = "clang-format"
+        vim.o.cindent = false
     end
 })
 
@@ -38,9 +39,9 @@ vim.o.expandtab = true
 vim.o.smartindent = true
 vim.o.cindent = false
 vim.o.smarttab = false
-vim.o.shiftwidth=4
-vim.o.tabstop=4
-vim.o.softtabstop=4
+vim.o.shiftwidth=2
+vim.o.tabstop=2
+vim.o.softtabstop=2
 vim.o.number = true
 vim.o.hlsearch = true
 vim.o.bs="indent,eol,start,nostop"
