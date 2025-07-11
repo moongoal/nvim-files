@@ -49,7 +49,7 @@ return {
   end,
   on_attach = function(client, bufnr)
     vim.lsp.completion.enable(true, client.id, bufnr, {
-      autotrigger = true,
+      autotrigger = false,
       convert = function(item)
         return { abbr = item.label:gsub('%b()', '') }
       end,

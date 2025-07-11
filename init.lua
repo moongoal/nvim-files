@@ -12,16 +12,17 @@ vim.api.nvim_create_autocmd("BufRead", {
 })
 
 vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
-    pattern = {"*.c", "*.h"},
+    pattern = {"*.c", "*.h", "*.cpp", "*.hpp"},
     callback = function()
         vim.o.syntax="c"
         vim.o.equalprg = "clang-format"
         vim.o.cindent = false
+        vim.o.smartindent = false
     end
 })
 
 vim.api.nvim_create_autocmd({"BufWritePre"}, {
-    pattern = { "*.c", "*.h" },
+    pattern = { "*.c", "*.h", "*.cpp", "*.hpp" },
     callback = function()
         vim.api.nvim_command("ClangFormatBuffer")
     end
@@ -36,7 +37,7 @@ vim.o.makeencoding="utf-8"
 vim.o.ffs="unix,dos"
 vim.o.autoindent = true
 vim.o.expandtab = true
-vim.o.smartindent = true
+vim.o.smartindent = false
 vim.o.cindent = false
 vim.o.smarttab = false
 vim.o.shiftwidth=2
