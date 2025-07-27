@@ -4,20 +4,20 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 -- Files {{{1
-vim.o.swapfile = false
+vim.cmd("filetype indent off")
+
+vim.opt.swapfile = false
 
 vim.api.nvim_create_autocmd("BufRead", {
     pattern = "*",
-    callback = function() vim.o.ffs="unix,dos" end
+    callback = function() vim.opt_local.ffs="unix,dos" end
 })
 
 vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
     pattern = {"*.c", "*.h", "*.cpp", "*.hpp"},
     callback = function()
-        vim.o.syntax="c"
-        vim.o.equalprg = "clang-format"
-        vim.o.cindent = false
-        vim.o.smartindent = false
+        vim.opt_local.syntax="c"
+        vim.opt_local.equalprg = "clang-format"
     end
 })
 
@@ -31,43 +31,43 @@ vim.api.nvim_create_autocmd({"BufWritePre"}, {
 vim.g.c_syntax_for_h=1
 
 -- Text editing {{{1
-vim.o.encoding="utf-8"
-vim.o.ff="unix"
-vim.o.makeencoding="utf-8"
-vim.o.ffs="unix,dos"
-vim.o.autoindent = true
-vim.o.expandtab = true
-vim.o.smartindent = false
-vim.o.cindent = false
-vim.o.smarttab = false
-vim.o.shiftwidth=2
-vim.o.tabstop=2
-vim.o.softtabstop=2
-vim.o.number = true
-vim.o.hlsearch = true
-vim.o.bs="indent,eol,start,nostop"
-vim.o.completeopt="menu,popup,preview,longest"
+vim.opt.encoding="utf-8"
+vim.opt.ff="unix"
+vim.opt.makeencoding="utf-8"
+vim.opt.ffs="unix,dos"
+vim.opt.autoindent = true
+vim.opt.expandtab = true
+vim.opt.smartindent = false
+vim.opt.cindent = false
+vim.opt.smarttab = false
+vim.opt.shiftwidth=2
+vim.opt.tabstop=2
+vim.opt.softtabstop=2
+vim.opt.number = true
+vim.opt.hlsearch = true
+vim.opt.bs="indent,eol,start,nostop"
+vim.opt.completeopt="menu,popup,preview,longest"
 
 -- Interface {{{1
 vim.cmd.colorscheme("blue")
 
-vim.o.cp = false
-vim.o.timeout = false
+vim.opt.cp = false
+vim.opt.timeout = false
 vim.o.shortmess = vim.o.shortmess .. "I"
-vim.o.foldmethod="manual"
-vim.o.laststatus=2
-vim.o.cursorline = true
+vim.opt.foldmethod="manual"
+vim.opt.laststatus=2
+vim.opt.cursorline = true
 
 vim.g.netrw_keepdir=0
 
 if vim.fn.has("gui_running") then
-    vim.o.mousehide = true
-    vim.o.guifont="FiraCode Nerd Font:h16"
-    vim.o.guicursor="a:block-blinkon1000-blinkoff0,i:block-blinkon500-blinkoff500"
+    vim.opt.mousehide = true
+    vim.opt.guifont="FiraCode Nerd Font:h16"
+    vim.opt.guicursor="a:block-blinkon1000-blinkoff0,i:block-blinkon500-blinkoff500"
 end
 
 -- Sessions {{{1
-vim.o.ssop="folds,globals,localoptions,resize,sesdir,slash,tabpages,terminal,unix"
+vim.opt.ssop="folds,globals,localoptions,resize,sesdir,slash,tabpages,terminal,unix"
 
 -- Plugins {{{1
 require("config.lazy")
