@@ -49,7 +49,7 @@ vim.opt.bs="indent,eol,start,nostop"
 vim.opt.completeopt="menu,popup,preview,longest"
 
 -- Interface {{{1
-vim.cmd.colorscheme("blue")
+vim.cmd.colorscheme("ron")
 
 vim.opt.cp = false
 vim.opt.timeout = false
