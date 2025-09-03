@@ -3,6 +3,7 @@ local lsp_config = {
     { "lua_ls", require("config.lsp.lua_ls") },
     { "pylsp", require("config.lsp.pylsp") },
     { "cmake", require("config.lsp.cmake") },
+    { "nushell", require("config.lsp.nushell") },
 }
 
 for i, entry in ipairs(lsp_config) do

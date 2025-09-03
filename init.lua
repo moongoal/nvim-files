@@ -74,7 +74,7 @@ require("config.lazy")
 require("config.statusline")
 require("config.lsp")
 require("config.fontsize")
-require("config.clang-format")
+-- require("config.clang-format")
 
 -- Key Bindings {{{1
 -- Navigation {{{2
@@ -91,7 +91,7 @@ vim.keymap.set('n', '<Leader>k', '<Cmd>terminal<CR>', { silent = true })
 -- Editing {{{2
 vim.keymap.set('n', '<Leader>=', '<Cmd>IncreaseFontSize<CR>', { silent = true })
 vim.keymap.set('n', '<Leader>-', '<Cmd>DecreaseFontSize<CR>', { silent = true })
-vim.keymap.set('n', '<Leader>cf', '<Cmd>ClangFormatBuffer<CR>', {})
+-- vim.keymap.set('n', '<Leader>cf', '<Cmd>ClangFormatBuffer<CR>', {})
 
 -- IDE {{{2
 local telescope = require('telescope.builtin')
