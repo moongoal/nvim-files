@@ -17,16 +17,16 @@ vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
     pattern = {"*.c", "*.h", "*.cpp", "*.hpp"},
     callback = function()
         vim.opt_local.syntax="c"
-        vim.opt_local.equalprg = "clang-format"
+        -- vim.opt_local.equalprg = "clang-format"
     end
 })
 
-vim.api.nvim_create_autocmd({"BufWritePre"}, {
-    pattern = { "*.c", "*.h", "*.cpp", "*.hpp" },
-    callback = function()
-        vim.api.nvim_command("ClangFormatBuffer")
-    end
-})
+-- vim.api.nvim_create_autocmd({"BufWritePre"}, {
+--     pattern = { "*.c", "*.h", "*.cpp", "*.hpp" },
+--     callback = function()
+--         vim.api.nvim_command("ClangFormatBuffer")
+--     end
+-- })
 
 vim.g.c_syntax_for_h=1
 
