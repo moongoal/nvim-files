@@ -4,6 +4,7 @@ local lsp_config = {
     { "pylsp", require("config.lsp.pylsp") },
     { "cmake", require("config.lsp.cmake") },
     { "nushell", require("config.lsp.nushell") },
+    { "typescript", require("config.lsp.typescript") },
 }
 
 for i, entry in ipairs(lsp_config) do
