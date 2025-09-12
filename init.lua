@@ -49,8 +49,6 @@ vim.opt.bs="indent,eol,start,nostop"
 vim.opt.completeopt="menu,popup,preview,longest"
 
 -- Interface {{{1
-vim.cmd.colorscheme("ron")
-
 vim.opt.cp = false
 vim.opt.timeout = false
 vim.o.shortmess = vim.o.shortmess .. "I"
@@ -110,4 +108,7 @@ vim.keymap.set('i', '<C-n>', vim.lsp.buf.signature_help, { desc = "Display signa
 vim.keymap.set('n', '<leader>dd', vim.diagnostic.open_float, { desc = "Display diagnostics" })
 vim.keymap.set('n', '<leader>dn', function () vim.diagnostic.jump({ count = 1, float = true }) end, { desc = "Go to the next diagnostic location" })
 vim.keymap.set('n', '<leader>dp', function() vim.diagnostic.jump({ count = -1, float = true }) end, { desc = "Go to the next diagnostic location" })
+
+-- Post-plugin-load commands {{{1
+vim.cmd.colorscheme("tokyonight-moon")
 
