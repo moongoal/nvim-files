@@ -70,9 +70,7 @@ vim.opt.ssop="folds,globals,localoptions,resize,sesdir,slash,tabpages,terminal,u
 -- Plugins {{{1
 require("config.lazy")
 require("config.statusline")
-require("config.lsp")
 require("config.fontsize")
--- require("config.clang-format")
 
 -- Key Bindings {{{1
 -- Navigation {{{2
@@ -99,12 +97,11 @@ vim.keymap.set('n', '<leader>fg', telescope.live_grep, { desc = 'Telescope live 
 vim.keymap.set('n', '<leader>fb', telescope.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', telescope.help_tags, { desc = 'Telescope help tags' })
 
-vim.keymap.set('n', '<leader>i', vim.lsp.buf.hover, { desc = "Display symbol information" })
-vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, { desc = "Goto definition/declaration" })
-vim.keymap.set('n', '<leader>u', vim.lsp.buf.references, { desc = "Display references" })
-vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { desc = "Rename symbol" })
-vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, { desc = "Display code actions" })
-vim.keymap.set('i', '<C-n>', vim.lsp.buf.signature_help, { desc = "Display signature help" })
+vim.cmd('nnoremap bi :call project#GenTags()<CR>')
+vim.cmd('nnoremap bc :call project#Configure()<CR>')
+vim.cmd('nnoremap bb :make<CR>')
+vim.cmd('nnoremap bt :call project#Test()<CR>')
+
 vim.keymap.set('n', '<leader>dd', vim.diagnostic.open_float, { desc = "Display diagnostics" })
 vim.keymap.set('n', '<leader>dn', function () vim.diagnostic.jump({ count = 1, float = true }) end, { desc = "Go to the next diagnostic location" })
 vim.keymap.set('n', '<leader>dp', function() vim.diagnostic.jump({ count = -1, float = true }) end, { desc = "Go to the next diagnostic location" })
