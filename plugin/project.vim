@@ -1,4 +1,5 @@
 set makeprg=cmake\ --build\ --preset\ Debug
+set makeef=build_error.log
 
 function! project#GenTags()
   !ctags -R --exclude=build

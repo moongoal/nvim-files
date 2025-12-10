@@ -97,10 +97,12 @@ vim.keymap.set('n', '<leader>fg', telescope.live_grep, { desc = 'Telescope live 
 vim.keymap.set('n', '<leader>fb', telescope.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', telescope.help_tags, { desc = 'Telescope help tags' })
 
-vim.cmd('nnoremap bi :call project#GenTags()<CR>')
-vim.cmd('nnoremap bc :call project#Configure()<CR>')
-vim.cmd('nnoremap bb :make<CR>')
-vim.cmd('nnoremap bt :call project#Test()<CR>')
+vim.cmd('nnoremap Bi :call project#GenTags()<CR>')
+vim.cmd('nnoremap Bc :call project#Configure()<CR>')
+vim.cmd('nnoremap Bb :make<CR>')
+vim.cmd('nnoremap Bt :call project#Test()<CR>')
+vim.cmd('nnoremap Bn :cnext<CR>')
+vim.cmd('nnoremap Bp :cprevious<CR>')
 
 vim.keymap.set('n', '<leader>dd', vim.diagnostic.open_float, { desc = "Display diagnostics" })
 vim.keymap.set('n', '<leader>dn', function () vim.diagnostic.jump({ count = 1, float = true }) end, { desc = "Go to the next diagnostic location" })
