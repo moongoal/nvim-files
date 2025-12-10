@@ -64,6 +64,9 @@ if vim.fn.has("gui_running") then
     vim.opt.guicursor="a:block-blinkon1000-blinkoff0,i:block-blinkon500-blinkoff500"
 end
 
+-- System Interface {{{1
+vim.o.sp = "| ^tee"
+
 -- Sessions {{{1
 vim.opt.ssop="folds,globals,localoptions,resize,sesdir,slash,tabpages,terminal,unix"
 
@@ -103,6 +106,7 @@ vim.cmd('nnoremap Bb :make<CR>')
 vim.cmd('nnoremap Bt :call project#Test()<CR>')
 vim.cmd('nnoremap Bn :cnext<CR>')
 vim.cmd('nnoremap Bp :cprevious<CR>')
+vim.cmd('nnoremap Be :cc<CR>')
 
 vim.keymap.set('n', '<leader>dd', vim.diagnostic.open_float, { desc = "Display diagnostics" })
 vim.keymap.set('n', '<leader>dn', function () vim.diagnostic.jump({ count = 1, float = true }) end, { desc = "Go to the next diagnostic location" })
