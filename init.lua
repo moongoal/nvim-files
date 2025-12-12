@@ -66,6 +66,9 @@ end
 
 -- System Interface {{{1
 vim.o.sp = "| ^tee"
+vim.o.shcf = "-c"
+vim.o.shq = ""
+vim.o.sxq = ""
 
 -- Sessions {{{1
 vim.opt.ssop="folds,globals,localoptions,resize,sesdir,slash,tabpages,terminal,unix"
