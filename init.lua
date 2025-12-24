@@ -65,6 +65,7 @@ if vim.fn.has("gui_running") then
 end
 
 -- System Interface {{{1
+vim.o.shell = "nu"
 vim.o.sp = "| ^tee"
 vim.o.shcf = "-c"
 vim.o.shq = ""
@@ -103,13 +104,13 @@ vim.keymap.set('n', '<leader>fg', telescope.live_grep, { desc = 'Telescope live 
 vim.keymap.set('n', '<leader>fb', telescope.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', telescope.help_tags, { desc = 'Telescope help tags' })
 
-vim.cmd('nnoremap Bi :call project#GenTags()<CR>')
-vim.cmd('nnoremap Bc :call project#Configure()<CR>')
-vim.cmd('nnoremap Bb :make<CR>')
-vim.cmd('nnoremap Bt :call project#Test()<CR>')
-vim.cmd('nnoremap Bn :cnext<CR>')
-vim.cmd('nnoremap Bp :cprevious<CR>')
-vim.cmd('nnoremap Be :cc<CR>')
+vim.cmd('nnoremap <C-B>i :call project#GenTags()<CR>')
+vim.cmd('nnoremap <C-B>c :call project#Configure()<CR>')
+vim.cmd('nnoremap <C-B>b :make<CR>')
+vim.cmd('nnoremap <C-B>t :call project#Test()<CR>')
+vim.cmd('nnoremap <C-B>n :cnext<CR>')
+vim.cmd('nnoremap <C-B>p :cprevious<CR>')
+vim.cmd('nnoremap <C-B>e :cc<CR>')
 
 vim.keymap.set('n', '<leader>dd', vim.diagnostic.open_float, { desc = "Display diagnostics" })
 vim.keymap.set('n', '<leader>dn', function () vim.diagnostic.jump({ count = 1, float = true }) end, { desc = "Go to the next diagnostic location" })
