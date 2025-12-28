@@ -10,7 +10,7 @@ function! project#GenTags()
     let l:options = join(g:projectGenTagsOptions, " ")
   endif
 
-  let l:cmd = "!ctags -R --exclude=build " . l:options
+  let l:cmd = "!ctags -R --exclude=build/ " . l:options
 
   execute l:cmd
 endfunction
