@@ -66,7 +66,7 @@ end
 
 -- System Interface {{{1
 vim.o.shell = "nu"
-vim.o.sp = "| ^tee"
+vim.o.sp = "| tee { save -f -r %s }"
 vim.o.shcf = "-c"
 vim.o.shq = ""
 vim.o.sxq = ""
